@@ -110,10 +110,10 @@ spec:
         #   value: "true"  # #### Enable container-aware logging ####
         resources:
           requests:
-            memory: "12Mi"
+            memory: "256Mi"
             cpu: "1m"
           limits:
-            memory: "12Mi"
+            memory: "256Mi"
             cpu: "50m"
         livenessProbe:
           httpGet:
