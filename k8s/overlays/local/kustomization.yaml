@@ -40,9 +40,9 @@ images:
 - name: veeno/notification-service
   newName: localhost:32000/notification-service
   newTag: 5a38691
-- name: veeno/transaction-service
+- name: testingkyaw/transaction-service
   newName: testingkyaw/transaction-service
-  newTag: 5a38691
+  newTag: latest
 - name: veeno/wallet-service
   newName: localhost:32000/wallet-service
   newTag: 5a38691
