@@ -36,7 +36,7 @@ spec:
       # serviceAccountName: transaction-service  # #### Uncomment for AWS EKS with IRSA ####
       containers:
       - name: transaction-service
-        image: veeno/transaction-service:latest  # #### Docker Hub image ####
+        image: testingkyaw/transaction-service:latest  # #### Docker Hub image ####
         imagePullPolicy: Always  # #### Pull from Docker Hub if not present locally ####
         securityContext:
           allowPrivilegeEscalation: false  # #### Prevent privilege escalation attacks ####
