@@ -1,0 +1,67 @@
+{
+  "info": {
+    "_postman_id": "payflow-local-api",
+    "name": "PayFlow (local)",
+    "description": "Minimal requests for PayFlow against the API Gateway with docker-compose up. Base URL: http://localhost:3000. Register two users, copy Bob's userId into collection variable toUserId, then send money.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "accessToken", "value": "" },
+    { "key": "toUserId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "1. Register (Alice)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"alice@example.com\",\n  \"password\": \"securepass123\",\n  \"name\": \"Alice\"\n}"
+        },
+        "url": "{{baseUrl}}/api/auth/register"
+      }
+    },
+    {
+      "name": "2. Register (Bob)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"bob@example.com\",\n  \"password\": \"securepass123\",\n  \"name\": \"Bob\"\n}"
+        },
+        "url": "{{baseUrl}}/api/auth/register"
+      }
+    },
+    {
+      "name": "3. Login (Alice)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"alice@example.com\",\n  \"password\": \"securepass123\"\n}"
+        },
+        "url": "{{baseUrl}}/api/auth/login"
+      }
+    },
+    {
+      "name": "4. Send money",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{accessToken}}" },
+          { "key": "Idempotency-Key", "value": "postman-demo-1", "disabled": true }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"toUserId\": \"{{toUserId}}\",\n  \"amount\": 10.5\n}"
+        },
+        "url": "{{baseUrl}}/api/transactions"
+      }
+    }
+  ]
+}
