@@ -42,7 +42,7 @@ images:
   newTag: 5a38691
 - name: testingkyaw/transaction-service
   newName: testingkyaw/transaction-service
-  newTag: latest
+  newTag: ef64b05
 - name: veeno/wallet-service
   newName: localhost:32000/wallet-service
   newTag: 5a38691
