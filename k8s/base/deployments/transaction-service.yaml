@@ -109,12 +109,12 @@ spec:
         # - name: CONTAINER_ENV
         #   value: "true"  # #### Enable container-aware logging ####
         resources:
-          requests:
-            memory: "256Mi"
-            cpu: "10m"
-          limits:
-            memory: "512Mi"
-            cpu: "500m"
+          # # requests:
+          # #   memory: "256Mi"
+          # #   cpu: "10m"
+          # limits:
+          #   memory: "512Mi"
+          #   cpu: "500m"
         livenessProbe:
           httpGet:
             path: /health
