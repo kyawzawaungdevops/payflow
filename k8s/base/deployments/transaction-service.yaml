@@ -110,7 +110,7 @@ spec:
         #   value: "true"  # #### Enable container-aware logging ####
         resources:
           requests:
-            memory: "25Mi"
+            memory: "12Mi"
             cpu: "1m"
           limits:
             memory: "12Mi"
